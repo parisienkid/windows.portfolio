@@ -1,4 +1,6 @@
-const form = () => {
+import validateInputs from './validateInputs';
+
+const form = (dataWindow) => {
 
     const forms = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('input'),
@@ -10,11 +12,10 @@ const form = () => {
         fail: 'Что-то пошло не так...',
     };
 
-    inputsNumber.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/\D/, '');
-        });
-    });
+
+    validateInputs(inputsNumber);
+
+    
 
     const postData = async (url, data) => {
         document.querySelector('.status').textContent = message.waiting;
@@ -43,6 +44,12 @@ const form = () => {
             item.appendChild(messageStatus);
 
             const formData = new FormData(item);
+
+            if (item.getAttribute('data-form') === 'end') {
+                for (let key in dataWindow) {
+                    formData.append(key, dataWindow[key]);
+                }
+            }
 
             postData('assets/server.php', formData)
                 .then(res => {
