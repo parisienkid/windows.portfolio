@@ -4,6 +4,7 @@ import tabs from './modules/tabs';
 import form from './modules/forms';
 import updateDataWindow from './modules/updateDataWindow';
 import timer from './modules/timer';
+import images from './modules/images';
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -17,4 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     updateDataWindow(dataWindow);
     form(dataWindow);
     timer('#timer', deadline);
+    images();
+    
 });
