@@ -4,9 +4,6 @@ const images = () => {
           popup = document.createElement('div'),
           image = document.createElement('img');
 
-
-
-
     popup.style.display = 'flex';
     popup.style.alignItems = 'center';
     popup.style.justifyContent = 'center';
@@ -16,8 +13,6 @@ const images = () => {
         image.style.width = '70%';
     }
 
-
-    
     imgagesWrapper.addEventListener('click', (e) => {
 
         if (e.target && e.target.classList.contains('preview')) {
@@ -35,11 +30,6 @@ const images = () => {
         }
 
     });
-
-    
-
-
-
 
 };
 
